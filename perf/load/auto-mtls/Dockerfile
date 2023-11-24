@@ -1,5 +1,5 @@
 # Docker image for config changer.
-FROM gcr.io/google-containers/hyperkube:v1.12.1
+FROM gcr.yylt.gq/google-containers/hyperkube:v1.12.1
 RUN apt-get update \
   && apt-get install -y curl=7.52.1-5+deb9u9\
     python3-pip=9.0.1-2+deb9u1 \

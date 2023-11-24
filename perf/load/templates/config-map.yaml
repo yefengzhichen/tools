@@ -71,7 +71,7 @@ data:
       local domain=${2:?"domain"}
       local duration=${3:?"valid duration of the cert"}
       local genNo=${4:?"generation number"}
-      local ns=${5:-"istio-system"}
+      local ns=${5:-"servicemesh"}
 
       gen=$(printf 'gen%.5d' ${genNo})
       generate_cert -mode signer -signer-priv=ca.key -signer-cert=ca.cert -host "${host}.local,${host}.${domain},${host}-${gen}.local" -duration 30m
@@ -102,7 +102,7 @@ data:
 
     # fetch signer cert and key
     # This is used to sign certificate for rotation.
-    kubectl get secret -n istio-system istio-ca-secret -o yaml > ca.yaml
+    kubectl get secret -n servicemesh istio-ca-secret -o yaml > ca.yaml
     awk '/ca-cert/ {print $2}' ca.yaml | base64 --decode > ca.cert
     awk '/ca-key/ {print $2}' ca.yaml | base64 --decode > ca.key
 

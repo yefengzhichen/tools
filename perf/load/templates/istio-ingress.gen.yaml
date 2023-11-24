@@ -4,7 +4,7 @@ metadata:
   name: entrypoint-gateway
 spec:
   selector:
-    istio: ingressgateway
+    istio: istio-ingressgateway
   servers:
   - port:
       name: http

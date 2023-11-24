@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.serviceNamePrefix }}0-gateway
 spec:
   selector:
-    istio: ingressgateway # use Istio default gateway implementation
+    istio: istio-ingressgateway # use Istio default gateway implementation
   servers:
   - port:
       number: 80

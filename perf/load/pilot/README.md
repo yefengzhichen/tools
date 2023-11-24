@@ -47,4 +47,4 @@ workloads seeing "svc-0" in their outbound CDS.
 - We don't use `envoy_cluster_manager_cds_version` for now because of an [issue](https://github.com/istio/istio/issues/13994).
 Different clusters does not show the same HASH even after long enough time to converge.
 - Consider to use annotation
-  `"sidecar.istio.io/statsInclusionPrefixes": "TBD", "gcr.io/mixologist-142215/proxyv2:suffix4"`
+  `"sidecar.istio.io/statsInclusionPrefixes": "TBD", "gcr.yylt.gq/mixologist-142215/proxyv2:suffix4"`

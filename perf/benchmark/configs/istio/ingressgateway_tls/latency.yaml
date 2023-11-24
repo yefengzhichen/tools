@@ -20,7 +20,7 @@ run_baseline: false
 
 jitter: false
 
-run_ingress: "https://istio-ingressgateway.istio-system.svc.cluster.local"
+run_ingress: "https://istio-ingressgateway.servicemesh.svc.cluster.local"
 headers: "Host:fortioserver.fake-dns.org"
 cacert: "/tmp/gateway-secret/tls.crt"
 

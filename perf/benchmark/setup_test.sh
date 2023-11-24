@@ -99,9 +99,9 @@ fi
 
 if [[ "$FORTIO_SERVER_INGRESS_CERT_ENABLED" == "true" ]]
 then
-  openssl req -x509 -newkey rsa:2048 -days 3650 -nodes -subj "/CN=istio-ingressgateway.istio-system.svc.cluster.local" -addext "subjectAltName = DNS:istio-ingressgateway.istio-system.svc.cluster.local" -keyout "${TMPDIR}/istio-ingressgateway.istio-system.svc.cluster.local.key" -out "${TMPDIR}/istio-ingressgateway.istio-system.svc.cluster.local.crt"
-  kubectl create -n istio-system secret tls fortio-server-ingress-cert --key="${TMPDIR}/istio-ingressgateway.istio-system.svc.cluster.local.key" --cert="${TMPDIR}/istio-ingressgateway.istio-system.svc.cluster.local.crt"
-  kubectl create -n "${NAMESPACE}" secret tls fortio-server-ingress-cert --key="${TMPDIR}/istio-ingressgateway.istio-system.svc.cluster.local.key" --cert="${TMPDIR}/istio-ingressgateway.istio-system.svc.cluster.local.crt"
+  openssl req -x509 -newkey rsa:2048 -days 3650 -nodes -subj "/CN=istio-ingressgateway.servicemesh.svc.cluster.local" -addext "subjectAltName = DNS:istio-ingressgateway.servicemesh.svc.cluster.local" -keyout "${TMPDIR}/istio-ingressgateway.servicemesh.svc.cluster.local.key" -out "${TMPDIR}/istio-ingressgateway.servicemesh.svc.cluster.local.crt"
+  kubectl create -n servicemesh secret tls fortio-server-ingress-cert --key="${TMPDIR}/istio-ingressgateway.servicemesh.svc.cluster.local.key" --cert="${TMPDIR}/istio-ingressgateway.servicemesh.svc.cluster.local.crt"
+  kubectl create -n "${NAMESPACE}" secret tls fortio-server-ingress-cert --key="${TMPDIR}/istio-ingressgateway.servicemesh.svc.cluster.local.key" --cert="${TMPDIR}/istio-ingressgateway.servicemesh.svc.cluster.local.crt"
 fi
 
 setup_test

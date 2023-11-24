@@ -1,4 +1,4 @@
-serviceGraphImage: gcr.io/istio-testing/isotope:0.0.3
+serviceGraphImage: gcr.yylt.gq/istio-testing/isotope:0.0.3
 serviceNamePrefix: svc-
 requestSize: 128B
 responseSize: 1KiB
@@ -18,7 +18,8 @@ proxyCPU: 100m
 proxyMemory: 128Mi
 
 # If enabled, strict mTLS will be set for the namespace
-mtls: true
+#mtls: true
+mtls: false 
 
 prometheus_scrape: false
 

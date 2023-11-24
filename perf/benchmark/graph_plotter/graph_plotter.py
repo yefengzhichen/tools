@@ -40,7 +40,10 @@ def plotter(args):
     plt.figure(figsize=(1138 / dpi, 871 / dpi), dpi=dpi)
     fig = plt.figure(figsize=(1138 / dpi, 871 / dpi), dpi=dpi)
     ax = fig.add_subplot(111)
-    ax.set_ylim(0, 1.5)
+    # 获取最大最小值来设置y轴
+    max_value = max(max(val) for val in telemetry_modes_y_data.values())
+    min_value = min(min(val) for val in telemetry_modes_y_data.values())
+    ax.set_ylim(min_value*0.9, max_value*1.1)
     for key, val in telemetry_modes_y_data.items():
         plt.plot(args.query_list, val, marker='o', label=key)
         for i, j in zip(args.query_list, val):
@@ -95,7 +98,6 @@ def get_metric_name(args):
 
 def get_data_helper(df, query_list, query_str, telemetry_mode, metric_name):
     y_series_data = []
-
     for ql in query_list:
         data = df.query(query_str)
         try:

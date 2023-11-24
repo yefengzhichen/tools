@@ -31,7 +31,7 @@ sleep 30
 1. Clean Up
 
 ```bash
-kubectl rm ns istio-system automtls
+kubectl rm ns servicemesh automtls
 ```
 
 1. Run base line for control
@@ -44,8 +44,8 @@ export ENABLE_AUTO_MTLS=false
 1. Gather Metrics
 
 ```bash
-pid=$(kpidn istio-system -lapp=grafana)
-kpfn istio-system $pid 3000
+pid=$(kpidn servicemesh -lapp=grafana)
+kpfn servicemesh $pid 3000
 ```
 
 Select workload dashboard, focused on `svc-0-front`, extend time range correspondingly.

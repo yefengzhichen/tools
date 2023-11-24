@@ -580,7 +580,7 @@ metadata:
   name: {{ .Values.gateway }}
 spec:
   selector:
-    istio: ingressgateway
+    istio: istio-ingressgateway
   servers:
   - hosts:
     - fortioserver.{{ .Values.domain }}
@@ -621,7 +621,7 @@ apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
 metadata:
   name: fortio-two-pod
-  namespace: istio-system
+  namespace: servicemesh
 spec:
   secretName: istio-ingressgateway-certs-fortio-twopod
   issuerRef:

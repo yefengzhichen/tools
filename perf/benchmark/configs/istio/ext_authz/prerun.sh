@@ -18,5 +18,5 @@ CONFIG_DIR=$(dirname "$0")
 
 # Install ext-authz
 kubectl apply -n twopods-istio -f https://raw.githubusercontent.com/istio/istio/release-1.15/samples/extauthz/ext-authz.yaml
-kubectl patch configmap -n istio-system istio --patch-file "${CONFIG_DIR}/ext-authz_patch.yaml"
-kubectl rollout restart deployment/istiod -n istio-system
+kubectl patch configmap -n servicemesh istio --patch-file "${CONFIG_DIR}/ext-authz_patch.yaml"
+kubectl rollout restart deployment/istiod -n servicemesh
